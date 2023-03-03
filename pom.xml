@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-core-lesson-two</module>
+        <module>spring-mvc-lesson-three</module>
     </modules>
 
     <properties>
