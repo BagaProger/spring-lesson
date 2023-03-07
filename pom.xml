@@ -12,6 +12,7 @@
         <module>spring-core-lesson-two</module>
         <module>spring-mvc-lesson-three</module>
         <module>spring-boot-lesson-four</module>
+        <module>hibernate-block</module>
     </modules>
 
     <properties>
