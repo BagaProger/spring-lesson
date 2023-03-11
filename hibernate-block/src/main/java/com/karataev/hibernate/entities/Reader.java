@@ -16,7 +16,7 @@ public class Reader {
     private String name;
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "books_reader",
             joinColumns = @JoinColumn(name = "reader_id"),
