@@ -2,10 +2,17 @@ package com.karataev.springbootlessonfour.services;
 
 import com.karataev.springbootlessonfour.entities.Product;
 import com.karataev.springbootlessonfour.repositories.ProductRepository;
+import com.karataev.springbootlessonfour.repositories.specifications.ProductSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -16,21 +23,43 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProduct() {
-        return productRepository.findAll();
-    }
-    public Product getById(Long id){
+    @Transactional
+    public Optional<Product> getById(Long id){
+
         return productRepository.findById(id);
     }
+    @Transactional
     public void remove(Long id){
-         productRepository.remove(id);
+
+        productRepository.deleteById(id);
+    }@Transactional
+    public void addOrUpdate(Product product){
+
+        productRepository.save(product);
     }
-    public void add(Product product){
-        productRepository.add(product);
+    @Transactional
+    public Page<Product> getByParams(Optional<String> nameFilter,
+                                     Optional<BigDecimal> min,
+                                     Optional<BigDecimal> max,
+                                     Optional<Integer> page,
+                                     Optional<Integer> size){
+
+        Specification<Product> specification =Specification.where(null);
+        if(nameFilter.isPresent()){
+        specification = specification.and(ProductSpecification.titleLike(nameFilter.get()));
+        }
+
+        if (min.isPresent()){
+            specification = specification.and(ProductSpecification.ge(min.get()));
+        }
+        if(max.isPresent()){
+            specification = specification.and(ProductSpecification.le(max.get()));
+        }
+
+        return productRepository.findAll(specification,
+                PageRequest.of(page.orElse(1) -1,size.orElse(4)));
     }
-    public void update(Product product){
-        productRepository.update(product);
-    }
+
 }
 
 

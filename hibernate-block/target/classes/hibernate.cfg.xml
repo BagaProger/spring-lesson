@@ -11,9 +11,15 @@
         <property name="hibernate.connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
         <property name="show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="current_session_context_class">thread</property>
 
 
-    </session-factory>
+        <mapping class="com.karataev.hibernate.entities.Manufacturer"></mapping>
+        <mapping class="com.karataev.hibernate.entities.Product"></mapping>
+        <mapping class="com.karataev.hibernate.entities.BigItem"></mapping>
+        <mapping class="com.karataev.hibernate.entities.Customer"></mapping>
+        </session-factory>
+
+
 </hibernate-configuration>
