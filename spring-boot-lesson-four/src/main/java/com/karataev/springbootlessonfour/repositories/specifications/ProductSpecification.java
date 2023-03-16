@@ -4,8 +4,11 @@ package com.karataev.springbootlessonfour.repositories.specifications;
 import com.karataev.springbootlessonfour.entities.Product;
 import org.springframework.data.jpa.domain.Specification;
 
+<<<<<<< HEAD
 import java.math.BigDecimal;
 
+=======
+>>>>>>> origin/master
 public class ProductSpecification {
 
     public static Specification<Product> trueLiteral(){
@@ -15,6 +18,7 @@ public class ProductSpecification {
         return (root, query, builder) -> builder.like(root.get("title"),"%"+titleFilter+"%");
     }
 
+<<<<<<< HEAD
     public static Specification<Product> ge(BigDecimal min){
         return (root, query, builder) -> builder.greaterThanOrEqualTo(root.get("price"),min);
     }
@@ -23,4 +27,6 @@ public class ProductSpecification {
     public static Specification<Product> le(BigDecimal max){
         return (root, query, builder) -> builder.lessThanOrEqualTo(root.get("price"),max);
     }
+=======
+>>>>>>> origin/master
 }
