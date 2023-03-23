@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/spring-core-lesson-two" />
-    <file type="web" url="file://$PROJECT_DIR$/spring-mvc-lesson-three" />
+    <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

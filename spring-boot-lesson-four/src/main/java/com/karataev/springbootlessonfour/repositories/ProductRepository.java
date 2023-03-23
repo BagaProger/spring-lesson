@@ -1,9 +1,10 @@
 package com.karataev.springbootlessonfour.repositories;
 
 import com.karataev.springbootlessonfour.entities.Product;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class ProductRepository {
     private final Map<Long, Product> identityMap = new ConcurrentHashMap<>();
 
 
-    @PostConstruct
+   @PostConstruct
     public void init(){
         add(new Product(null,"Macbook","Ultra fast pricessor",new BigDecimal(3000)));
         add(new Product(null,"iPhone","The most expensive phone by credit",new BigDecimal(2000)));

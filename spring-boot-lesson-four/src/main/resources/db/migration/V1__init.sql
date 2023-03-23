@@ -15,10 +15,3 @@ VALUES
     ('iMac','Ultra fast pricessor',4000 );
 
 
-DROP TABLE if exists items;
-CREATE table items(
-    id    Serial,
-    title Varchar(40)
-);
-Insert INTO items(title)
-VALUES ('stone'),('knife'),('spoon');
